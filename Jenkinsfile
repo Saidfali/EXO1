@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh '''if test $(grep -c jenkins /etc/passwd) -ne 0 
   then
-    find / -user jenkins > /tmp/jenkins
+    sudo find / -user jenkins > /tmp/jenkins
 fi'''
       }
     }
