@@ -9,16 +9,16 @@ pipeline {
 
     stage('Stage2') {
       steps {
-        sh '''if test \'grep -c jenkins /etc/passwd -ne 0\' 
+        sh '''if test $(grep -c jenkins /etc/passwd) -ne 0 
   then
-    find /-user jenkins > /tmp/jenkins
+    find / -user jenkins > /tmp/jenkins
 fi'''
       }
     }
 
     stage('Stage3') {
       steps {
-        sh '''for i in \'cat /tmp/jenkins\'
+        sh '''for i in $(cat /tmp/jenkins)
 do 
 ls -il $i
 done'''
